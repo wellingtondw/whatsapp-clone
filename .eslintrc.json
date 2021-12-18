@@ -6,7 +6,10 @@
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/prettier",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -25,7 +28,11 @@
     "no-shadow": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "prefer-arrow-callback": "error",
     "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
     "max-len": ["warn", { "code": 80 }],
     "@typescript-eslint/no-shadow": ["error"],
     "no-use-before-define": "off",
@@ -33,6 +40,7 @@
     "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "func-names": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
