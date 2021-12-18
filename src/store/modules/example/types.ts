@@ -1,3 +1,7 @@
+export type IValue = number
+
 export interface IExampleState {
-  example: []
+  example: {
+    value: IValue
+  }
 }
