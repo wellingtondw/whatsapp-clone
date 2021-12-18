@@ -1,11 +1,14 @@
 import { useCallback } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { add, remove } from '../../store/modules/example/actions'
 
 export const Example = function () {
   const dispatch = useDispatch()
+  const example = useSelector((state) => state)
+
+  console.log(example)
 
   const handleAdd = useCallback(
     (value) => {

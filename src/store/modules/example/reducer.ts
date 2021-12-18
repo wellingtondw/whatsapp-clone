@@ -7,10 +7,30 @@ const INITIAL_STATE: IExampleState = {
   },
 }
 
-const example: Reducer<IExampleState> = (state, action) => {
-  console.log(state, action)
-
-  return INITIAL_STATE
+const example: Reducer<IExampleState> = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case 'ADD': {
+      const { value } = action.payload
+      return {
+        ...state,
+        example: {
+          value: state.example.value + value,
+        },
+      }
+    }
+    case 'REMOVE': {
+      const { value } = action.payload
+      return {
+        ...state,
+        example: {
+          value: state.example.value - value,
+        },
+      }
+    }
+    default: {
+      return state
+    }
+  }
 }
 
 export default example
