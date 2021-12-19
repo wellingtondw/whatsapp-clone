@@ -1,14 +1,16 @@
 import { useCallback } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { IState } from '../../store'
 
 import { add, remove } from '../../store/modules/example/actions'
+import { IValue } from '../../store/modules/example/types'
 
 export const Example = function () {
   const dispatch = useDispatch()
-  const example = useSelector((state) => state)
-
-  console.log(example)
+  const exampleValue = useSelector<IState, IValue>(
+    (state) => state.example.value
+  )
 
   const handleAdd = useCallback(
     (value) => {
@@ -26,6 +28,7 @@ export const Example = function () {
 
   return (
     <>
+      {exampleValue}
       <button type="button" onClick={() => handleAdd(1)}>
         +
       </button>

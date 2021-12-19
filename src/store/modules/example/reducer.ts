@@ -2,9 +2,7 @@ import { Reducer } from 'redux'
 import { IExampleState } from './types'
 
 const INITIAL_STATE: IExampleState = {
-  example: {
-    value: 0,
-  },
+  value: 0,
 }
 
 const example: Reducer<IExampleState> = (state = INITIAL_STATE, action) => {
@@ -13,18 +11,14 @@ const example: Reducer<IExampleState> = (state = INITIAL_STATE, action) => {
       const { value } = action.payload
       return {
         ...state,
-        example: {
-          value: state.example.value + value,
-        },
+        value: state.value + value,
       }
     }
     case 'REMOVE': {
       const { value } = action.payload
       return {
         ...state,
-        example: {
-          value: state.example.value - value,
-        },
+        value: state.value - value,
       }
     }
     default: {
