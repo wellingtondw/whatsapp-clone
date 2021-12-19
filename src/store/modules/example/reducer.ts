@@ -1,4 +1,6 @@
 import { Reducer } from 'redux'
+import produce from 'immer'
+
 import { IExampleState } from './types'
 
 const INITIAL_STATE: IExampleState = {
@@ -6,25 +8,23 @@ const INITIAL_STATE: IExampleState = {
 }
 
 const example: Reducer<IExampleState> = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case 'ADD': {
-      const { value } = action.payload
-      return {
-        ...state,
-        value: state.value + value,
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case 'ADD': {
+        const { value } = action.payload
+        draft.value += value
+        break
+      }
+      case 'REMOVE': {
+        const { value } = action.payload
+        draft.value -= value
+        break
+      }
+      default: {
+        return draft
       }
     }
-    case 'REMOVE': {
-      const { value } = action.payload
-      return {
-        ...state,
-        value: state.value - value,
-      }
-    }
-    default: {
-      return state
-    }
-  }
+  })
 }
 
 export default example
