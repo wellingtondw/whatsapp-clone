@@ -2,6 +2,8 @@ import { all, put, takeLatest } from 'redux-saga/effects'
 
 import { addRequest, addSuccess, removeSuccess } from './actions'
 
+import { ActionTypes } from './types'
+
 type AddSagaRequest = ReturnType<typeof addRequest>
 
 function* addSaga({ payload }: AddSagaRequest) {
@@ -17,6 +19,6 @@ function* removeSaga({ payload }: AddSagaRequest) {
 }
 
 export default all([
-  takeLatest('ADD_REQUEST', addSaga),
-  takeLatest('REMOVE_REQUEST', removeSaga),
+  takeLatest(ActionTypes.addRequest, addSaga),
+  takeLatest(ActionTypes.removeRequest, removeSaga),
 ])

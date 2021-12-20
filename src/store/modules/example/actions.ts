@@ -1,8 +1,8 @@
-import { IValue } from './types'
+import { ActionTypes, IValue } from './types'
 
 export const addRequest = (value: IValue) => {
   return {
-    type: 'ADD_REQUEST',
+    type: ActionTypes.addRequest,
     payload: {
       value,
     },
@@ -11,7 +11,7 @@ export const addRequest = (value: IValue) => {
 
 export const addSuccess = (value: IValue) => {
   return {
-    type: 'ADD_SUCCESS',
+    type: ActionTypes.addSuccess,
     payload: {
       value,
     },
@@ -20,7 +20,7 @@ export const addSuccess = (value: IValue) => {
 
 export const addFailure = (value: IValue) => {
   return {
-    type: 'ADD_FAILURE',
+    type: ActionTypes.addFailure,
     payload: {
       value,
     },
@@ -29,7 +29,7 @@ export const addFailure = (value: IValue) => {
 
 export const removeRequest = (value: IValue) => {
   return {
-    type: 'REMOVE_REQUEST',
+    type: ActionTypes.removeRequest,
     payload: {
       value,
     },
@@ -38,7 +38,7 @@ export const removeRequest = (value: IValue) => {
 
 export const removeSuccess = (value: IValue) => {
   return {
-    type: 'REMOVE_SUCCESS',
+    type: ActionTypes.removeSuccess,
     payload: {
       value,
     },
@@ -47,7 +47,7 @@ export const removeSuccess = (value: IValue) => {
 
 export const removeFailure = (value: IValue) => {
   return {
-    type: 'REMOVE_FAILURE',
+    type: ActionTypes.removeFailure,
     payload: {
       value,
     },
