@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IState } from '../../store'
 
-import { add, remove } from '../../store/modules/example/actions'
+import { addRequest, removeRequest } from '../../store/modules/example/actions'
 import { IValue } from '../../store/modules/example/types'
 
 export const Example = function () {
@@ -14,14 +14,14 @@ export const Example = function () {
 
   const handleAdd = useCallback(
     (value) => {
-      dispatch(add(value))
+      dispatch(addRequest(value))
     },
     [dispatch]
   )
 
   const handleRemove = useCallback(
     (value) => {
-      dispatch(remove(value))
+      dispatch(removeRequest(value))
     },
     [dispatch]
   )

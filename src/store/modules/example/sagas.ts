@@ -1,7 +1,22 @@
-import { all, takeLatest } from 'redux-saga/effects'
+import { all, put, takeLatest } from 'redux-saga/effects'
 
-function checkSaga() {
-  console.log('Adicionou mais um valor')
+import { addRequest, addSuccess, removeSuccess } from './actions'
+
+type AddSagaRequest = ReturnType<typeof addRequest>
+
+function* addSaga({ payload }: AddSagaRequest) {
+  const { value } = payload
+
+  yield put(addSuccess(value))
 }
 
-export default all([takeLatest('ADD', checkSaga)])
+function* removeSaga({ payload }: AddSagaRequest) {
+  const { value } = payload
+
+  yield put(removeSuccess(value))
+}
+
+export default all([
+  takeLatest('ADD_REQUEST', addSaga),
+  takeLatest('REMOVE_REQUEST', removeSaga),
+])
